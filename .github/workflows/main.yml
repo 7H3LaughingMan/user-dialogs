@@ -147,4 +147,4 @@ jobs:
           method: 'POST'
           contentType: 'application/json'
           customHeaders: '{"Authorization": "${{ secrets.FVTT_PACKAGE_RELEASE_TOKEN }}"}'
-          data: '{"id":"${{ steps.module_json.outputs.id }}","release":{"version":"${{ steps.get_version.outputs.version-without-v }}","manifest":"${{ env.release_manifest_url }}","notes":"${{ env.release_url }}","compatibility":{"minimum":"${{ steps.module_json.outputs.compatibility.minimum }}","verified":"${{ steps.module_json.outputs.compatibility.verified }}","maximum":"${{ steps.module_json.outputs.compatibility.maximum }}"}}}'
+          data: '{ "id": "${{ steps.module_json.outputs.id }}", "release": { "version": "${{ steps.get_version.outputs.version-without-v }}", "manifest": "${{ env.release_manifest_url }}", "notes": "${{ env.release_url }}", "compatibility": ${{ steps.module_json.outputs.compatibility }} } }'
